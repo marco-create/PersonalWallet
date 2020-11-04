@@ -4,7 +4,7 @@ import webbrowser
 import pandas
 import traceback
 from datetime import date
-import time
+import os
 
 # Constants and handles
 WIDTH = 400
@@ -41,6 +41,12 @@ window = sg.Window(
 					element_justification="c"
 )
 ## ---- Main loop. Open the csv file and wait for user buttons
+# check if the wallet file exists. Otherwise, create that.
+if os.path.isfile("guiWallet.csv"):
+	print("HERE")
+else:
+	create_wallet()
+	
 filePath = r".\guiWallet.csv"
 with open(filePath) as file:
 	data = pandas.read_csv(file)
