@@ -5,22 +5,22 @@ def create_wallet():
   ''' Function that creates the wallet from zero.
       No arguments needed.
   '''
-    shopping = pd.DataFrame({"-BILLS-"  :["0.0"],
-                            "-TICKETS-" :["0.0"],
-                            "-SHOPPING-":["0.0"],
-                            "-PRESENTS-":["0.0"],
-                            "-FUN-"     :["0.0"],
-                            "-TRAVELS-" :["0.0"],
-                            "-HOUSE-"   :["0.0"],
-                            "-CAR-"     :["0.0"],
-                            "-INCOMES-" :["0.0"],}
-                            )
+  shopping = pd.DataFrame({"-BILLS-"  :["0.0"],
+                          "-TICKETS-" :["0.0"],
+                          "-SHOPPING-":["0.0"],
+                          "-PRESENTS-":["0.0"],
+                          "-FUN-"     :["0.0"],
+                          "-TRAVELS-" :["0.0"],
+                          "-HOUSE-"   :["0.0"],
+                          "-CAR-"     :["0.0"],
+                          "-INCOMES-" :["0.0"],}
+                          )
 
-    shopping = shopping.apply(pd.to_numeric)  # convert values to numeric
-    print(shopping.dtypes)
-    print(shopping.loc[ 0 , shopping.columns != "-INCOMES-"].sum() - shopping["-INCOMES-"])
+  shopping = shopping.apply(pd.to_numeric)  # convert values to numeric
+  print(shopping.dtypes)
+  print(shopping.loc[ 0 , shopping.columns != "-INCOMES-"].sum() - shopping["-INCOMES-"])
 
-    shopping.to_csv(r".\guiWallet.csv", index=False)  # save it
+  shopping.to_csv(r".\guiWallet.csv", index=False)  # save it
 
 def call_popup():
 	'''Open popup message with instructions

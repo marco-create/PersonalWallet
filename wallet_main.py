@@ -96,11 +96,15 @@ _༼ ಥ ‿ ಥ ༽_/¯	_༼ ಥ ‿ ಥ ༽_/¯
 					window["-ML-"].print(idx[1], item)
 
 			elif event == "-CLEAR-":
-				to_clean = new_events.pop(-1) # reset the last input from new_events list
-				data[to_clean] -= float(values["-INPUT-"])  # subtract from that value the same value that has been added
-				window["-ML-"].Update("")
-				window["-OUTPUT-"].Update("")
-				window["-INPUT-"].Update("")			
+				try:
+					to_clean = new_events.pop(-1) # reset the last input from new_events list
+					data[to_clean] -= float(values["-INPUT-"])  # subtract from that value the same value that has been added
+					window["-ML-"].Update("")
+					window["-OUTPUT-"].Update("")
+					window["-INPUT-"].Update("")	
+				except IndexError:	# if user tries to clean empty dictionary
+							sg.Print('''Before you clean, you should insert some values!''')
+							continue
 
 			elif event in ("-EXIT-", "Exit", None):
 				window["-OUTPUT-"].Update("")
