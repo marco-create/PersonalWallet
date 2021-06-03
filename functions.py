@@ -29,7 +29,7 @@ def call_popup():
 Enter how much and how you spent your money.
 - Use dot (".") for decimals.
 
-- CLEAR ->  to clear your inputs.
+- CLEAR ->  to clear your last input.
 - GO    ->  to calculate your expenses and save the wallet.
 - EXIT  ->  when you are done.
 	''', title="Wallet!", keep_on_top=True)
